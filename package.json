@@ -35,5 +35,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "author": {
+    "name": "Flavio Santos",
+    "email": "flvSantos300@gmail.com",
+    "url": "https://github.com/flvSantos15"
   }
 }
