@@ -15,6 +15,8 @@ export default function SignIn() {
     <div>
       <h1>Sign In Page</h1>
       <button onClick={handleLogGoogleUser}>Sign in with Google</button>
+
+      <SignUpForm />
     </div>
   )
 }
