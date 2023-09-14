@@ -2,6 +2,7 @@ import { doc, getDoc, setDoc } from 'firebase/firestore'
 import { auth, db } from '../../../utils/firebase'
 import {
   createUserWithEmailAndPassword,
+  onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut
 } from 'firebase/auth'
@@ -48,3 +49,6 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
 }
 
 export const signOutUser = async () => await signOut(auth)
+
+export const onAuthStateChangeListener = (callback) =>
+  onAuthStateChanged(auth, callback)
