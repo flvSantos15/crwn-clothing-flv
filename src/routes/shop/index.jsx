@@ -1,16 +1,16 @@
 import { useProduct } from '../../contexts/productContext'
 
+import { ProductCard } from '../../components/product-card'
+
+import './styles.scss'
+
 export default function Shop() {
   const { products } = useProduct()
 
   return (
-    <div>
+    <div className="products-container">
       {products.map((product) => {
-        return (
-          <div key={product.id}>
-            <h1>{product.name}</h1>
-          </div>
-        )
+        return <ProductCard key={product.id} product={product} />
       })}
     </div>
   )
