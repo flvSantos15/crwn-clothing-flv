@@ -2,6 +2,7 @@ import { Fragment } from 'react'
 import { Outlet, Link } from 'react-router-dom'
 
 import { useUser } from '../../contexts/userContext'
+import { useCart } from '../../contexts/cartContext'
 
 import { signOutUser } from '../../services/firebase/auth'
 
@@ -14,6 +15,7 @@ import './styles.scss'
 
 export default function Navigation() {
   const { currentUser } = useUser()
+  const { isCartOpen } = useCart()
 
   return (
     <Fragment>
@@ -39,7 +41,7 @@ export default function Navigation() {
           )}
           <CartIcon />
         </div>
-        <CartDropdown />
+        {isCartOpen && <CartDropdown />}
       </div>
       <Outlet />
     </Fragment>
