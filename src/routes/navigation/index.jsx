@@ -6,9 +6,13 @@ import { useUser } from '../../contexts/userContext'
 import { signOutUser } from '../../services/firebase/auth'
 
 import { ReactComponent as CrwnLogo } from '../../assets/crown.svg'
+
+import { CartIcon } from '../../components/cart-icon'
+import { CartDropdown } from '../../components/cart-dropdown'
+
 import './styles.scss'
 
-const Navigation = () => {
+export default function Navigation() {
   const { currentUser } = useUser()
 
   return (
@@ -33,11 +37,11 @@ const Navigation = () => {
               SIGN IN
             </Link>
           )}
+          <CartIcon />
         </div>
+        <CartDropdown />
       </div>
       <Outlet />
     </Fragment>
   )
 }
-
-export default Navigation
