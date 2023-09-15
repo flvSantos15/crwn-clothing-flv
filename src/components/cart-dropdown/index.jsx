@@ -1,4 +1,5 @@
 import { Button } from '../button'
+import { CartItem } from '../cart-item'
 
 import './styles.scss'
 
