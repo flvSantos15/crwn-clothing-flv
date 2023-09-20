@@ -1,4 +1,4 @@
-import './styles.scss'
+// import './styles.scss'
 
 export function CartItem({ cartItem }) {
   return (
