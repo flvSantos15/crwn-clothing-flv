@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useMemo, useState } from 'react'
 
 const addCartItem = (cartItems, productToAdd) => {
   const existingCartItem = cartItems.find(
@@ -20,7 +20,8 @@ export const CartContext = createContext({
   isCartOpen: false,
   setIsCartOpen: () => {},
   cartItems: [],
-  addItemToCart: () => {}
+  addItemToCart: () => {},
+  itemsAmount: 0
 })
 
 export function CartProvider({ children }) {
@@ -31,9 +32,21 @@ export function CartProvider({ children }) {
     setCartItems(addCartItem(cartItems, productToAdd))
   }
 
+  const itemsAmount = useMemo(() => {
+    return cartItems.reduce((acc, curr) => {
+      return acc + curr.quantity
+    }, 0)
+  }, [cartItems])
+
   return (
     <CartContext.Provider
-      value={{ isCartOpen, setIsCartOpen, addItemToCart, cartItems }}
+      value={{
+        isCartOpen,
+        setIsCartOpen,
+        addItemToCart,
+        cartItems,
+        itemsAmount
+      }}
     >
       {children}
     </CartContext.Provider>
