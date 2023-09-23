@@ -1,5 +1,3 @@
-import { useCallback } from 'react'
-
 import { CheckoutItem } from '../../components/checkout-item'
 import { useCart } from '../../contexts/cartContext'
 
