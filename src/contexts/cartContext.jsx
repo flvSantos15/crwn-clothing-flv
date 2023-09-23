@@ -35,13 +35,19 @@ const removeCartItem = (cartItems, cartItemToRemove) => {
   )
 }
 
+const clearCartItem = (cartItems, cartItemToClear) => {
+  return cartItems.filter((item) => item.id !== cartItemToClear.id)
+}
+
 export const CartContext = createContext({
   isCartOpen: false,
   setIsCartOpen: () => {},
   cartItems: [],
   addItemToCart: () => {},
   removeItemFromCart: () => {},
-  itemsAmount: 0
+  clearItemFromCart: () => {},
+  itemsAmount: 0,
+  totalPrice: 0
 })
 
 export function CartProvider({ children }) {
@@ -52,13 +58,23 @@ export function CartProvider({ children }) {
     setCartItems(addCartItem(cartItems, productToAdd))
   }
 
-  const removeItemFromCart = (productToAdd) => {
-    setCartItems(removeCartItem(cartItems, productToAdd))
+  const removeItemFromCart = (productToRemove) => {
+    setCartItems(removeCartItem(cartItems, productToRemove))
+  }
+
+  const clearItemFromCart = (productToClear) => {
+    setCartItems(clearCartItem(cartItems, productToClear))
   }
 
   const itemsAmount = useMemo(() => {
     return cartItems.reduce((acc, curr) => {
       return acc + curr.quantity
+    }, 0)
+  }, [cartItems])
+
+  const totalPrice = useMemo(() => {
+    return cartItems.reduce((acc, curr) => {
+      return acc + curr.price * curr.quantity
     }, 0)
   }, [cartItems])
 
@@ -69,8 +85,10 @@ export function CartProvider({ children }) {
         setIsCartOpen,
         addItemToCart,
         removeItemFromCart,
+        clearItemFromCart,
         cartItems,
-        itemsAmount
+        itemsAmount,
+        totalPrice
       }}
     >
       {children}
