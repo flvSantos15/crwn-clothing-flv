@@ -17,11 +17,14 @@ export default function Category() {
   }, [category, categories])
 
   return (
-    <div className="category-route-container">
-      {products &&
-        products.map((product) => {
-          return <ProductCard key={product.id} product={product} />
-        })}
-    </div>
+    <>
+      <h2 className="category-title">{category?.toLocaleUpperCase()}</h2>
+      <div className="category-route-container">
+        {products &&
+          products.map((product) => {
+            return <ProductCard key={product.id} product={product} />
+          })}
+      </div>
+    </>
   )
 }
