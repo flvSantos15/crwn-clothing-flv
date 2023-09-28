@@ -5,7 +5,7 @@ import { signInAuthUserWithEmailAndPassword } from '../../services/firebase/auth
 
 import { FormInput } from '../form-input'
 import './styles.scss'
-import { Button } from '../button'
+import { Button, BUTTON_TYPE_CLASSES } from '../button'
 
 const defaultFormFields = {
   email: '',
@@ -80,7 +80,7 @@ export function SignInForm() {
           <Button type="submit">Sign In</Button>
           <Button
             type="button"
-            buttonType="google"
+            buttonType={BUTTON_TYPE_CLASSES.google}
             onClick={handleSignInWithGoogle}
           >
             Google sign in

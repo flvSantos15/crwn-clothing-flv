@@ -1,8 +1,8 @@
 import { useCart } from '../../contexts/cartContext'
 
-import { ReactComponent as ShoopingIcon } from '../../assets/shopping-bag.svg'
+// import { ReactComponent as ShoopingIcon } from '../../assets/shopping-bag.svg'
 
-import './styles.scss'
+import { CartIconContainer, ItemCount, ShoopingIcon } from './styles'
 
 export function CartIcon() {
   const { isCartOpen, setIsCartOpen, itemsAmount } = useCart()
@@ -12,9 +12,10 @@ export function CartIcon() {
   }
 
   return (
-    <div className="cart-icon-container" onClick={handleOpenCart}>
-      <ShoopingIcon className="shopping-icon" />
-      <span className="item-count">{itemsAmount}</span>
-    </div>
+    <CartIconContainer onClick={handleOpenCart}>
+      {/* <ShoopingIcon className="shopping-icon" /> */}
+      <ShoopingIcon />
+      <ItemCount>{itemsAmount}</ItemCount>
+    </CartIconContainer>
   )
 }

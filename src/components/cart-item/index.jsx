@@ -1,15 +1,15 @@
-import './styles.scss'
+import { CatItemContainer, ItemDetails, Name } from './styles'
 
 export function CartItem({ cartItem }) {
   return (
-    <div className="cart-item-container">
+    <CatItemContainer>
       <img src={cartItem.imageUrl} alt="" />
-      <div className="item-details">
-        <span className="name">{cartItem.name}</span>
+      <ItemDetails>
+        <Name>{cartItem.name}</Name>
         <span className="price">
           {cartItem.quantity} x ${cartItem.price}
         </span>
-      </div>
-    </div>
+      </ItemDetails>
+    </CatItemContainer>
   )
 }

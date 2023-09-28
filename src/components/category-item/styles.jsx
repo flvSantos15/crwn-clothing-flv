@@ -1,4 +1,6 @@
-.category-container {
+import styled from 'styled-components'
+
+export const CategoryContainer = styled.div`
   min-width: 30%;
   height: 240px;
   flex: 1 1 auto;
@@ -33,16 +35,15 @@
   &:last-child {
     margin-left: 7.5px;
   }
+`
 
-  .background-image {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-  }
-}
-
-.category-body-container {
+export const BackgroundImage = styled.div`
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+`
+export const CategoryBodyContainer = styled.div`
   height: 90px;
   padding: 0 25px;
   display: flex;
@@ -65,4 +66,4 @@
     font-weight: lighter;
     font-size: 16px;
   }
-}
+`
