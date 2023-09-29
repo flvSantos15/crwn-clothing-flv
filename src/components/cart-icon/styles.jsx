@@ -12,7 +12,7 @@ export const CartIconContainer = styled.div`
   cursor: pointer;
 `
 
-export const ItemCount = styled.div`
+export const ItemCount = styled.span`
   position: absolute;
   font-size: 10px;
   font-weight: bold;
