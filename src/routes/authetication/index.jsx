@@ -1,14 +1,14 @@
 import { SignUpForm } from '../../components/sign-up-form'
 import { SignInForm } from '../../components/sign-in-form'
 
-import './styles.scss'
+import { AutheticationContainer } from './styles'
 
 export default function Authetication() {
   return (
-    <div className="authetication-container">
+    <AutheticationContainer>
       <SignInForm />
 
       <SignUpForm />
-    </div>
+    </AutheticationContainer>
   )
 }

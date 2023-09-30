@@ -1,7 +1,7 @@
 import { CheckoutItem } from '../../components/checkout-item'
 import { useCart } from '../../contexts/cartContext'
 
-import './styles.scss'
+import { CheckoutContainer, CheckoutHeader, HeaderBlock, Total } from './styles'
 
 const headerItems = [
   { id: 1, value: 'Product' },
@@ -15,20 +15,20 @@ export default function Checkout() {
   const { cartItems, totalPrice } = useCart()
 
   return (
-    <div className="checkout-container">
-      <div className="checkout-header">
+    <CheckoutContainer>
+      <CheckoutHeader>
         {headerItems.map((item) => {
           return (
-            <div className="header-block" key={item.id}>
+            <HeaderBlock key={item.id}>
               <span>{item.value}</span>
-            </div>
+            </HeaderBlock>
           )
         })}
-      </div>
+      </CheckoutHeader>
       {cartItems.map((item) => {
         return <CheckoutItem key={item.id} cartItem={item} />
       })}
-      <span className="total">Total: $ {totalPrice}</span>
-    </div>
+      <Total>Total: $ {totalPrice}</Total>
+    </CheckoutContainer>
   )
 }
