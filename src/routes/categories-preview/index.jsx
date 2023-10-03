@@ -1,9 +1,10 @@
-import { useCategory } from '../../contexts/categoriesContext'
+import { useSelector } from 'react-redux'
 
 import { CategoryPreview } from '../../components/category-preview'
+import { selectCategory } from '../../store/categories/categorySelector'
 
 export default function CategoriesPreview() {
-  const { categories } = useCategory()
+  const categories = useSelector(selectCategory)
 
   return (
     <>

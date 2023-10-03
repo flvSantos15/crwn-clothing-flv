@@ -1,8 +1,9 @@
 import { Fragment } from 'react'
 import { Outlet } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
-import { useUser } from '../../contexts/userContext'
 import { useCart } from '../../contexts/cartContext'
+import { selectCurrentUser } from '../../store/user/userSelector'
 
 import { signOutUser } from '../../services/firebase/auth'
 
@@ -14,7 +15,7 @@ import { CartDropdown } from '../../components/cart-dropdown'
 import { NavigationContainer, NavLinks, NavLink, LogoContainer } from './styles'
 
 export default function Navigation() {
-  const { currentUser } = useUser()
+  const currentUser = useSelector(selectCurrentUser)
   const { isCartOpen } = useCart()
 
   return (
