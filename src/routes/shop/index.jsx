@@ -11,13 +11,13 @@ import Category from '../category'
 export default function Shop() {
   const dispatch = useDispatch()
 
-  const getCategoriesMap = async () => {
-    const categoryMap = await getCategoriesAndDocuments()
-    dispatch(setCategories(categoryMap))
+  const getCategories = async () => {
+    const categories = await getCategoriesAndDocuments()
+    dispatch(setCategories(categories))
   }
 
   useEffect(() => {
-    getCategoriesMap()
+    getCategories()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
