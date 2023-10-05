@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
-
-import { useCart } from '../../contexts/cartContext'
+import { useSelector } from 'react-redux'
+import { selectCartItems } from '../../store/cart/cartSelector'
 
 import { Button } from '../button'
 import { CartItem } from '../cart-item'
@@ -12,7 +12,7 @@ import {
 } from './styles'
 
 export function CartDropdown() {
-  const { cartItems } = useCart()
+  const cartItems = useSelector(selectCartItems)
   const navigate = useNavigate()
 
   const handleRedirectToCheckout = () => {
