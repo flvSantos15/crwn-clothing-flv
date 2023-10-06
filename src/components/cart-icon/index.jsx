@@ -14,7 +14,6 @@ export function CartIcon() {
   const itemsAmount = useSelector(selectCartCount)
 
   const handleOpenCart = () => {
-    console.log('carticon', !isCartOpen)
     dispatch(setIsCartOpen(!isCartOpen))
   }
 
