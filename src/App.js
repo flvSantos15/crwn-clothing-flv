@@ -2,11 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { Routes, Route } from 'react-router-dom'
 
-import {
-  createUserDocumentFromAuth,
-  onAuthStateChangeListener
-} from './services/firebase/auth'
-import { setCurrentUser } from './store/user/userAction'
+import { checkUserSession } from './store/user/userAction'
 
 import Home from './routes/home'
 import Navigation from './routes/navigation'
@@ -18,14 +14,7 @@ const App = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    const unsubcribe = onAuthStateChangeListener((user) => {
-      if (user) {
-        createUserDocumentFromAuth(user)
-      }
-      dispatch(setCurrentUser(user))
-    })
-
-    return unsubcribe
+    dispatch(checkUserSession())
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
