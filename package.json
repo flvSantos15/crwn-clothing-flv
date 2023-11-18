@@ -54,5 +54,12 @@
     "name": "Flavio Santos",
     "email": "flvSantos300@gmail.com",
     "url": "https://github.com/flvSantos15"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.8",
+    "@types/node": "^20.9.1",
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "typescript": "^5.2.2"
   }
 }
